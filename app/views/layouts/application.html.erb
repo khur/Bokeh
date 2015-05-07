@@ -2,11 +2,28 @@
 <html>
 <head>
   <title>Bokeh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav>
+  <div class="container">
+    <span id="logo">Bokeh</span>
+    <div class="nav-links">
+      
+    </div>
+
+    <div class="session">
+      <% if logged_in? %>
+        Logged in as: <%= current_user.username %> <%= link_to 'Log Out', logout_path, method: :delete %>
+      <% else %>
+          <%= link_to 'Log In', login_path %> <%= link_to 'Sign up', signup_path %>
+      <% end %>
+    </div>    
+  </div>
+</nav>
 
 <%= yield %>
 
