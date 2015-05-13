@@ -1,8 +1,36 @@
 class User < ActiveRecord::Base
-  has_many :photos
+  before_save {self.email = email.downcase}
 
-  validates :name, presence: true
-  validates :username, presence: true, uniqueness: {case_sensitive: false}, length: { in: 3..16 }
-  validates :email, presence: true, uniqueness: {case_sensitive: false}, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
-  # validates :password, presence: true, confirmation: true, length: { in: 6..20 }
+  validates :name, presence: true, length: {maximum: 50}
+  validates :email, presence: true, length: {maximum: 100},
+    format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}, uniqueness: {case_sensitive: false}
+  validates :username, presence: true, uniqueness: {case_sensitive: false}, length: {in: 3..20 }
+  has_secure_password
+  validates :password, length: {in: 6..50}
+
+  attr_accessor :remember_token
+
+  def self.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+      BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
+  def self.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+  end
+
+  def authenticated?(remember_token)
+    return false if remember_digest.nil?
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
 end
