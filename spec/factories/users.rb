@@ -1,10 +1,9 @@
 FactoryGirl.define do
   factory :user do
-    image "MyString"
     name "MyString"
-    email "MyString"
+    email "abc@example.com"
+    image "MyString"
     username "MyString"
-    password_digest "MyString"
+    password "123qwe"
   end
-
 end

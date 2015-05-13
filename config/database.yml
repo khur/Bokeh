@@ -23,13 +23,13 @@ default: &default
 
 development:
   <<: *default
-  database: Bokeh_development
+  database: project3_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: Bokeh
+  #username: project3
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: Bokeh_test
+  database: project3_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: Bokeh_production
-  username: Bokeh
-  password: <%= ENV['BOKEH_DATABASE_PASSWORD'] %>
+  database: project3_production
+  username: project3
+  password: <%= ENV['PROJECT3_DATABASE_PASSWORD'] %>
