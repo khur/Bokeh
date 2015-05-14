@@ -1,2 +1,6 @@
-<h1>Contests#index</h1>
-<p>Find me in app/views/contests/index.html.erb</p>
+<h1>Contests</h1>
+<ul>
+<% @contests.each do |contest|%>
+	<li><%= link_to contest.name, contest_path(contest) %></li>
+<% end %>
+</ul>
