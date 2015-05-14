@@ -41,7 +41,7 @@ class ContestsController < ApplicationController
     if @contest.destroy
       redirect_to contests_path
     end
-    
+
   end
 
 

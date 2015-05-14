@@ -1,2 +1,9 @@
-<h1>Contests#show</h1>
-<p>Find me in app/views/contests/show.html.erb</p>
+<h1>Contest name: <%= @contest.name %></h1>
+<h2>Contest criteria: <%= @contest.criteria %></h2>
+
+<h3>Photos: </h3>
+<% @contest.photos.each do |photo| %>
+<%= image_tag("#{photo.url}") %>
+<% end %>
+
+<%= link_to "Enter Contest", "#" %>
