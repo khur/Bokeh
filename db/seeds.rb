@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Photo.destroy_all
+Contest.destroy_all
 
 photos = Photo.create([
   {url: "http://assets.worldwildlife.org/photos/2090/images/hero_small/Sumatran-Tiger-Hero.jpg?1345559303 ",
@@ -26,3 +27,11 @@ photos = Photo.create([
     }
 
 ])
+
+contests = Contest.create([
+    {name: "Light Contst"},
+    {name: "Composition Contest"},
+    {name: "Portraits"},
+    {name: "Primary Colors"},
+    {name: "Swimsuit Contest"}
+ ])  
