@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :photos
+  has_many :contests
+
   before_save {self.email = email.downcase}
 
   validates :name, presence: true, length: {maximum: 50}
@@ -6,7 +9,7 @@ class User < ActiveRecord::Base
     format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}, uniqueness: {case_sensitive: false}
   validates :username, presence: true, uniqueness: {case_sensitive: false}, length: {in: 3..20 }
   has_secure_password
-  validates :password, length: {in: 6..50}
+  validates :password, length: {in: 6..50}, allow_blank: true
 
   attr_accessor :remember_token
 

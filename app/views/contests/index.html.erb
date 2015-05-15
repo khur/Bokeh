@@ -1,0 +1,6 @@
+<h1>Contests</h1>
+<ul>
+<% @contests.each do |contest|%>
+	<li><%= link_to contest.name, contest_path(contest) %></li>
+<% end %>
+</ul>

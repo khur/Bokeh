@@ -11,24 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150513000549) do
+ActiveRecord::Schema.define(version: 20150514233239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "contests", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.text     "criteria"
+    t.boolean  "active",     default: true
   end
 
   create_table "photos", force: :cascade do |t|
-    t.string   "url"
     t.integer  "score"
     t.integer  "user_id"
     t.integer  "contest_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "image"
   end
 
   add_index "photos", ["contest_id"], name: "index_photos_on_contest_id", using: :btree
@@ -40,9 +42,10 @@ ActiveRecord::Schema.define(version: 20150513000549) do
     t.string   "email"
     t.string   "username"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "remember_digest"
+    t.boolean  "admin",           default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

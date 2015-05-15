@@ -10,18 +10,44 @@ module API
       render json: Photo.find(params[:id])
     end
 
-    def create
-      photo= Photo.new(photo_params)
+    def new
+      @photo = Photo.new
+      render 'photos/new'
+    end
 
-      if photo.save
-        render json: photo, status: 201, location: [:api, photo]
+    def create
+      @photo = Photo.new(photo_params)
+      @photo.user = current_user
+      
+      if @photo.save
+        # render json: @photo, status: 201, location: [:api, @photo]
+        redirect_to current_user
+      else
+        render json: @photo.errors, status: 422
       end
+    end
+
+    def update
+      photo = Photo.find(params[:id])
+
+      if photo.update(photo_params)
+        render json: photo
+      else
+        render json: photo.errors, status: 422
+      end
+    end
+
+    def destroy
+      photo = Photo.find(params[:id])
+
+      photo.destroy
+      head 204
     end
 
 
     private
     def photo_params
-      params.require(:photo).permit(:url)
+      params.require(:photo).permit(:image, :score)
     end
 
   end

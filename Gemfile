@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 gem 'bcrypt'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem 'bootstrap-sass'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -10,6 +12,11 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'carrierwave'
+gem 'fog'         # required for Amazon S3
+gem 'rmagick'     # for post-upload image processing
+gem 'active_model_serializers'
+
 
 group :development, :test do
   gem 'byebug'
@@ -20,7 +27,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
   gem 'puma'
 end
