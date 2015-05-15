@@ -8,6 +8,42 @@
 
 Photo.destroy_all
 Contest.destroy_all
+User.destroy_all
+
+# kanye = Band.create(name: "Kanye West")
+users = User.create([
+    {
+        image: "phofile pic",
+        name: "Abraham Lincoln",
+        email: "Abram@example.com",
+        username: "honest_abe",
+        password_digest: "password"
+   },
+    {
+        image: "phofile pic",
+        name: "Doge",
+        email: "doge@example.com",
+        username: "doge_style",
+        password_digest: "password"
+    },
+    {
+        image: "phofile pic",
+        name: "Mick",
+        email: "mick@example.com",
+        username: "mick",
+        password_digest: "password"
+    }
+
+])
+
+contests = Contest.create([
+    {name: "Light Contst"},
+    {name: "Composition Contest"},
+    {name: "Portraits"},
+    {name: "Primary Colors"},
+    {name: "Swimsuit Contest"}
+ ])  
+
 
 # photos = Photo.create([
 #   {url: "http://assets.worldwildlife.org/photos/2090/images/hero_small/Sumatran-Tiger-Hero.jpg?1345559303 ",
@@ -26,12 +62,6 @@ Contest.destroy_all
 #     score: 6
 #     }
 
+
 # ])
 
-contests = Contest.create([
-    {name: "Light Contst"},
-    {name: "Composition Contest"},
-    {name: "Portraits"},
-    {name: "Primary Colors"},
-    {name: "Swimsuit Contest"}
- ])  

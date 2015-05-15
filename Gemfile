@@ -15,6 +15,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'carrierwave'
 gem 'fog'         # required for Amazon S3
 gem 'rmagick'     # for post-upload image processing
+gem 'active_model_serializers'
+
 
 group :development, :test do
   gem 'byebug'
