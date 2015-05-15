@@ -1,7 +1,8 @@
 <h1>Contest name: <%= @contest.name %></h1>
 <h2>Contest criteria: <%= @contest.criteria %></h2>
 
-<h3>Photos: </h3>
+
+<h3>Photos in contest: </h3>
 <% if @contest.photos.empty? %>
   <p>No photos in this contest yet</p>
 <% end %>
@@ -9,11 +10,11 @@
     <%= image_tag photo.image.url(:thumb) %>
 <% end %>
 
-<%= label_tag "Enter Contest" %>
 <br>
 <% if @user.photos.empty? %>
   <p>You ain't gots no photos</p>
 <% end %>
+<h3>Your Photos</h3>
 <% @user.photos.each do |photo| %>
-    <%= link_to (image_tag photo.image.url(:thumb)), enter_contest_path(:photo_id => photo_id) %>
+    <%= link_to (image_tag photo.image.url(:thumb)), enter_contest_path(id: @contest.id, photo_id: photo.id)%>
 <% end %>

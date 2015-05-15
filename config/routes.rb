@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  get 'contest/:id' => 'contests#enter_contest',as: :enter_contest
+  get 'contest/:id/photo/:photo_id' => 'contests#enter_contest', as: :enter_contest
 
 
 
