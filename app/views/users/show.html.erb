@@ -11,6 +11,9 @@
 </div>
 
 <section>
+    <% if @user.photos.empty? %>
+      <p>You ain't gots no photos</p>
+    <% end %> 
     <% @user.photos.each do |photo| %>
         <%= image_tag photo.image %>
     <% end %>

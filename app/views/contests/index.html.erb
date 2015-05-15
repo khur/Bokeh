@@ -1,6 +1,8 @@
 <h1>Contests</h1>
+<%= link_to("Create Contest", new_contest_path) %>
 <ul>
 <% @contests.each do |contest|%>
-	<li><%= link_to contest.name, contest_path(contest) %></li>
+	<li><%= link_to "#{contest.name}", contest_path(contest) %></li>
 <% end %>
 </ul>
+

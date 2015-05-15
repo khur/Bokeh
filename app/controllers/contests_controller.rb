@@ -9,13 +9,14 @@ class ContestsController < ApplicationController
 
   def show
     @contest = Contest.find(params[:id])
+    @user = current_user
   end
 
   def create
-    @contest = Contest.new
+    @contest = Contest.new(contest_params)
 
     if @contest.save
-      redirect_to contest_path
+      redirect_to contests_path
     else
       render :new
     end
@@ -41,13 +42,22 @@ class ContestsController < ApplicationController
     if @contest.destroy
       redirect_to contests_path
     end
-
   end
 
+  def enter_contest
+  	@contest = Contest.find(params[:id])
+  	@photo = Photo.find(params[:photo_id])
+  	@photo.contest = @contest
+  	if @photo.save	
+  		p "it worked!"
+  		redirect_to contest_path(@contest)
+  	end
+  	
+  end
 
   private
 
   def contest_params
-    params.require(:contest).permit(:name)
+    params.require(:contest).permit(:name, :criteria)
   end
 end
