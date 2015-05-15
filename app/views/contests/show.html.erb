@@ -3,7 +3,7 @@
 
 <h3>Photos: </h3>
 <% @contest.photos.each do |photo| %>
-<%= image_tag("#{photo.url}") %>
+<%= image_tag("#{photo}") %>
 <% end %>
 
 <%= link_to "Enter Contest", "#" %>
