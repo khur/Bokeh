@@ -1,5 +1,5 @@
 class PhotoSerializer < ActiveModel::Serializer
-  attributes :id, :url, :score, :created_at, :user, :contest
+  attributes :id, :image, :score, :created_at, :user
 
   #has_one :user
 
@@ -7,8 +7,13 @@ class PhotoSerializer < ActiveModel::Serializer
     object.user.name
   end
 
-  def contest
-    object.contest.name
+  def image
+    object.image.url
   end
+
+
+  # def contest
+  #   object.contest.name
+  # end
   
 end
