@@ -49,6 +49,5 @@ module API
     def photo_params
       params.require(:photo).permit(:image, :score)
     end
-
   end
 end
