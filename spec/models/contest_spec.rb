@@ -6,9 +6,19 @@ RSpec.describe Contest, type: :model do
     it 'should have a name' do 
       contest = FactoryGirl.build_stubbed(:contest, name: '')
       expect(contest).to be_invalid
-
     end
-    
+
+    it "should have criteria" do 
+      contest = FactoryGirl.build_stubbed(:contest, criteria: '')
+      expect(contest).to be_invalid
+    end
+
+    it "should default to true" do 
+      contest = FactoryGirl.build_stubbed(:contest)
+      expect(contest.active).to eq true
+    end 
+
+
   end# Ends Contest Validations
 
 
