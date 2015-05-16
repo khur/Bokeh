@@ -47,8 +47,7 @@ module API
 
     private
     def photo_params
-      params.require(:photo).permit(:image, :score)
+      params.require(:photo).permit(:image, :score, :contest_id)
     end
-
   end
 end

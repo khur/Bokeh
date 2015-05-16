@@ -11,7 +11,12 @@
   </aside>
 </div>
 
+
 <section class="row">
+    <% if @user.photos.empty? %>
+      <p>You ain't gots no photos</p>
+    <% end %> 
+
     <% @user.photos.each do |photo| %>
        <div class="col-md-6"> <%= image_tag photo.image,  class: "img-rounded img-responsive user_photo" %> </div>
     <% end %>

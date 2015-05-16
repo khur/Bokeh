@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
-  # get 'inventory' => 'static_pages#inventory'
 
   get 'signup'  => 'users#new'
   resources :users
@@ -18,7 +17,10 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  
+  get 'contest/:id/photo/:photo_id' => 'contests#enter_contest', as: :enter_contest
+
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
