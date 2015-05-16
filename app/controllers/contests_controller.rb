@@ -1,4 +1,5 @@
 class ContestsController < ApplicationController
+
   def index
     @contests = Contest.all
   end
@@ -19,29 +20,20 @@ class ContestsController < ApplicationController
       redirect_to contests_path
     else
       render :new
+
     end
-  end
 
-  def edit
-    @contest = Contest.find(params[:id])
-  end
 
-  def update
-    @contest = Contest.find(params[:id])
-
-    if @contest.update_attributes(contest_params)
-      redirect_to contest_path(@contest)
-    else
-      render :edit
+    def show
+        @contest = Contest.find(params[:id])
     end
-  end
 
-  def destroy
-    @contest = Contest.find(params[:id])
 
-    if @contest.destroy
-      redirect_to contests_path
+    def new
+        @contest = Contest.new
     end
+
+
   end
 
   def enter_contest
@@ -61,3 +53,4 @@ class ContestsController < ApplicationController
     params.require(:contest).permit(:name, :criteria)
   end
 end
+
