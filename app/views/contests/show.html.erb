@@ -3,10 +3,10 @@
 
 
 <h3>Photos in contest: </h3>
-<% if @contest.photos.empty? %>
+<% if @contest.photos.where(user_id: current_user.id).empty? %>
   <p>No photos in this contest yet</p>
 <% end %>
-<% @contest.photos.each do |photo| %>
+<% @contest.photos.where(user_id: current_user.id).each do |photo| %>
     <%= image_tag photo.image.url(:thumb) %>
 <% end %>
 
