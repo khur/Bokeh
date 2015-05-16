@@ -4,14 +4,20 @@
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
-        <%= @user.name %>
+        <%= @user.username %>
       </h1>
+      
     </section>
   </aside>
 </div>
 
-<section>
+
+<section class="row">
+    <% if @user.photos.empty? %>
+      <p>You ain't gots no photos</p>
+    <% end %> 
+
     <% @user.photos.each do |photo| %>
-        <%= image_tag photo.image.url %>
+       <div class="col-md-6"> <%= image_tag photo.image,  class: "img-rounded img-responsive user_photo" %> </div>
     <% end %>
 </section>

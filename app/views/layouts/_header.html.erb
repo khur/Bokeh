@@ -4,7 +4,9 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Upload", root_path %></li>
+        <li><%= link_to "Upload", new_api_photo_path %></li>
+
+        <li><%= link_to "Contest", contests_path %></li>
         <li><%= link_to "Help", help_path %></li>
         <% if logged_in? %>
           <li><%= link_to "Users", users_path %></li>

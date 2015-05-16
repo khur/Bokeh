@@ -3,4 +3,6 @@ class Contest < ActiveRecord::Base
   belongs_to :user
 
   validates :name, presence: true
+  validates :criteria, presence: true
+  
 end

@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   resources :contests
 
+  namespace :api do
+    resources :photos
+  end
+
   root             'static_pages#home'
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
-  # get 'inventory' => 'static_pages#inventory'
 
   get 'signup'  => 'users#new'
   resources :users
@@ -14,9 +17,10 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  namespace :api do
-    resources :photos
-  end
+  get 'contest/:id/photo/:photo_id' => 'contests#enter_contest', as: :enter_contest
+
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
