@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150514233239) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.integer  "score", default: 1400
+    t.integer  "score"
     t.integer  "user_id"
     t.integer  "contest_id"
     t.datetime "created_at", null: false
