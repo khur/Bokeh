@@ -16,6 +16,7 @@ gem 'carrierwave'
 gem 'fog'         # required for Amazon S3
 gem 'rmagick'     # for post-upload image processing
 gem 'active_model_serializers'
+gem 'figaro'
 
 
 group :development, :test do

@@ -82,6 +82,8 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    figaro (1.1.1)
+      thor (~> 0.14)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
     fog (1.30.0)
@@ -308,6 +310,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.1.0)
   factory_girl_rails
+  figaro
   fog
   jbuilder (~> 2.0)
   jquery-rails
