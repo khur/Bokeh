@@ -75,3 +75,15 @@ function changeBackground() {
 $(document).ready(function() {
     setTimeout(changeBackground, 5000);
 });
+
+$(window).load(function() {
+$('#user_contest_index').pinterest_grid({
+		no_columns: 7,
+		padding_x: 10,
+		padding_y: 10,
+		margin_bottom: 50,
+		single_column_breakpoint: 700
+	});
+});
+
+

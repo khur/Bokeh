@@ -5,7 +5,14 @@
 <% end %>
 <ul>
 <% @contests.each do |contest|%>
-	<li><%= link_to "#{contest.name}", contest_path(contest) %></li>
+	<li>
+		<h3><%= link_to "#{contest.name}", contest_path(contest) %></h3>
+		<%= link_to "Top 10", ranking_path(contest) %>
+		<% if @current_user.admin %>
+			 | <%= link_to "Destroy Contest", contest,  method: :delete %>
+		<% end %>
+	</li>
+	
 <% end %>
 </ul>
 

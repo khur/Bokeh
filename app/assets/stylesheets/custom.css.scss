@@ -212,6 +212,16 @@ input {
 
 /* User Photos */
 
+.imageInput{
+  padding: 1%;
+  border-radius: 5px;
+}
+.newPhoto{
+  width: 50%;
+  margin: 5% auto;
+}
+
+
 #user_index {
 position: relative;
 max-width: 100%;
@@ -379,4 +389,49 @@ transition: all 0.3s ease-in-out;
   border: 1px solid white;
   color: rgb(253, 47, 149);
 }
+
+/* CONTEST RANKING PHOTOS */
+
+.ranks_photos{
+  margin: 0 auto;
+  text-align: center;
+}
+img.ranked_photo {
+  width: 75%;
+  margin: 1% auto;
+  
+}
+
+li{
+  list-style-type: none;
+  border-bottom: 1px solid $gray-lighter;
+}
+
+/* ABOUT ME */
+
+#aboutMe{
+  width: 75%;
+  margin: 0 auto;
+  p{
+    background-color: $gray-lighter;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5%;
+  }
+}
+
+/* CONTACT US */
+
+#contactUs{
+  width: 75%;
+  margin: 0 auto;
+  p{
+    background-color: $gray-lighter;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5%;
+  }
+}
+
+
 

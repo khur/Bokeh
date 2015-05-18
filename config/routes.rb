@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :contests
-
+  resources :contests, except: [:detroy]
+    delete 'contests/:id' => 'contests#destroy', as: :contest_destroy
   namespace :api do
     resources :photos
   end
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'contests/:id/start' => 'contests#start', as: :start_contest
   get 'contests/:id/vote' => 'contests#vote'
   put 'contests/:id/vote' => 'contests#vote', as: :vote
+  get 'contests/:id/rankings' => 'contests#ranking', as: :ranking
 
 
   # The priority is based upon order of creation: first created -> highest priority.
