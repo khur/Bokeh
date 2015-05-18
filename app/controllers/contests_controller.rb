@@ -34,9 +34,12 @@ class ContestsController < ApplicationController
 
   def start
     @contest = Contest.find(params[:id])
-    random_photos = @contest.photos.limit(2).order("RANDOM()")
-    @photo1 = random_photos[0]
-    @photo2 = random_photos[1]
+    # random_photos = @contest.photos.limit(2).order("RANDOM()")
+    # @photo1 = random_photos[0]
+    # @photo2 = random_photos[1]
+    @photo1 = @contest.photos.limit(1).order("RANDOM()")
+    @photo2 = @contest.photos.
+
   end
 
   def vote

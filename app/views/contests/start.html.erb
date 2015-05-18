@@ -2,7 +2,11 @@
     <p>not enough photos in this contest</p>
 <% else %>
     <%= link_to image_tag(@photo1.image.url(:thumb)), vote_path(id: @contest.id, up_photo_id: @photo1.id, down_photo_id: @photo2.id) %>
-    <%= @photo1.score %>
+    <% if current_user.admin == true %>
+        <%= @photo1.score %>
+    <% end %>
     <%= link_to image_tag(@photo2.image.url(:thumb)), vote_path(id: @contest.id, up_photo_id: @photo2.id, down_photo_id: @photo1.id) %>
-    <%= @photo2.score %>
+    <% if current_user.admin == true %>
+        <%= @photo2.score %>
+    <% end %>
 <% end %>
