@@ -34,9 +34,6 @@ class ContestsController < ApplicationController
 
   def start
     @contest = Contest.find(params[:id])
-    # random_photos = @contest.photos.limit(2).order("RANDOM()")
-    # @photo1 = random_photos[0]
-    # @photo2 = random_photos[1]
 
     @random_photos = @contest.photos.limit(20).order("RANDOM()")
     random_counter = 0
@@ -47,14 +44,14 @@ class ContestsController < ApplicationController
     while @photo1 == @photo2
       random_counter += 1
       if random_counter == @random_photos.size
+        flash[:error] = "No available photo matching"
         redirect_to root_path
       end
       @photo1 = @random_photos[random_counter]
-      @lo_range = @photo1.score - 400
+      @lo_range = @photo1.score - 400 if !@photo1.nil?
       @hi_range = @lo_range + 800
       @photo2 = @contest.photos.where(score: @lo_range..@hi_range).limit(1).order("RANDOM()")[0]
     end
-
   end
 
   def vote

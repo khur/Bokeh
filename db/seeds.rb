@@ -11,38 +11,18 @@ Contest.destroy_all
 User.destroy_all
 
 # kanye = Band.create(name: "Kanye West")
-users = User.create([
-    {
-        image: "phofile pic",
-        name: "Abraham Lincoln",
-        email: "Abram@example.com",
-        username: "honest_abe",
-        password_digest: "password"
-   },
-    {
-        image: "phofile pic",
-        name: "Doge",
-        email: "doge@example.com",
-        username: "doge_style",
-        password_digest: "password"
-    },
-    {
-        image: "phofile pic",
-        name: "Mick",
-        email: "mick@example.com",
-        username: "mick",
-        password_digest: "password"
-    }
-
+User.create([
+              {
+                image: "no image",
+                name: "Richard Luo",
+                username: "rluo0506",
+                email: "rluo0506@gmail.com",
+                password: "123qwe",
+                password_confirmation: '123qwe',
+                admin: true
+              }
 ])
 
-contests = Contest.create([
-    {name: "Light Contst"},
-    {name: "Composition Contest"},
-    {name: "Portraits"},
-    {name: "Primary Colors"},
-    {name: "Swimsuit Contest"}
- ])  
 
 
 # photos = Photo.create([
@@ -64,4 +44,3 @@ contests = Contest.create([
 
 
 # ])
-
