@@ -99,6 +99,7 @@ class ContestsController < ApplicationController
   def ranking
     @contest = Contest.find(params[:id])
     @photos = @contest.photos.limit(10).order(score: :desc)
+  end
 
   def contest_owner
     @contest = Contest.find(params[:id])
