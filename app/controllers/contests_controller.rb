@@ -37,8 +37,23 @@ class ContestsController < ApplicationController
     # random_photos = @contest.photos.limit(2).order("RANDOM()")
     # @photo1 = random_photos[0]
     # @photo2 = random_photos[1]
-    @photo1 = @contest.photos.limit(1).order("RANDOM()")
-    @photo2 = @contest.photos.
+
+    @random_photos = @contest.photos.limit(20).order("RANDOM()")
+    random_counter = 0
+    @photo1 = @random_photos[random_counter]
+    @lo_range = @photo1.score - 400
+    @hi_range = @lo_range + 800
+    @photo2 = @contest.photos.where(score: @lo_range..@hi_range).limit(1).order("RANDOM()")[0]
+    while @photo1 == @photo2
+      random_counter += 1
+      if random_counter == @random_photos.size
+        redirect_to root_path
+      end
+      @photo1 = @random_photos[random_counter]
+      @lo_range = @photo1.score - 400
+      @hi_range = @lo_range + 800
+      @photo2 = @contest.photos.where(score: @lo_range..@hi_range).limit(1).order("RANDOM()")[0]
+    end
 
   end
 
