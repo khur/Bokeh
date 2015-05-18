@@ -1,14 +1,15 @@
 <h1>Contest name: <%= @contest.name %></h1>
 <h2>Contest criteria: <%= @contest.criteria %></h2>
-
+<div class="bg4"></div>
+<div class="bg-overlay"></div>
 <%= "Number of photos in this contest: #{@contest.photos.size}" %>
 <br>
-
-<%= link_to("Vote in this contest", start_contest_path) %>
 <br>    
 <br>
 <br>
 <br>
+
+<%= link_to("Vote in this contest", start_contest_path) %>
 <br>
 <br>
 <br>
@@ -17,6 +18,7 @@
 
 <% if logged_in? %>
 	<h3>Your photos in contest: </h3>
+	<br>
 	<div id="user_contest_index">
 	<% if @contest.photos.where(user_id: current_user.id).empty? %>
 	  <p>No photos in this contest yet</p>
@@ -30,6 +32,7 @@
 	</div>
 	<br>
 	<h3>Your Photos</h3>
+	<br>
 	<div id="user_index">
 		<% if @user.photos.empty? %>
 		  <p>You ain't gots no photos</p>
