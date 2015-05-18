@@ -206,6 +206,16 @@ input {
 
 /* User Photos */
 
+.imageInput{
+  padding: 1%;
+  border-radius: 5px;
+}
+.newPhoto{
+  width: 50%;
+  margin: 5% auto;
+}
+
+
 #user_index {
 position: relative;
 max-width: 100%;
