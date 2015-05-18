@@ -37,7 +37,7 @@
 
 	<% @user.photos.each do |photo| %>
 	    <div class="user_photo">
-	    	<%= link_to (image_tag photo.image.url(:thumb), class: "user_contest_entry"), enter_contest_path(id: @contest.id, photo_id: photo.id)%>
+	    	<%= link_to (image_tag photo.image, class: "user_contest_entry"), enter_contest_path(id: @contest.id, photo_id: photo.id)%>
 	    </div>
 	<% end %>
 </div>
