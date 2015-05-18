@@ -1,0 +1,15 @@
+<h1><%= @contest.name %></h1>
+
+
+<section id="list_ranked_photo">
+
+	<% @photos.each do |photo| %>
+
+		<div class="ranks_photos">
+			
+			<%= image_tag photo.image, class: "ranked_photo" %>
+		</div>
+
+	<% end %>
+
+</section>

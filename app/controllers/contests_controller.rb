@@ -95,6 +95,11 @@ class ContestsController < ApplicationController
     redirect_to start_contest_path
   end
 
+
+  def ranking
+    @contest = Contest.find(params[:id])
+    @photos = @contest.photos.limit(10).order(score: :desc)
+
   def contest_owner
     @contest = Contest.find(params[:id])
 
@@ -110,6 +115,7 @@ class ContestsController < ApplicationController
       flash[:danger] = "Not enough photos in current contest."
       redirect_to contest_path
     end
+
   end
 
   private
@@ -117,4 +123,6 @@ class ContestsController < ApplicationController
   def contest_params
     params.require(:contest).permit(:name, :criteria)
   end
+
+
 end

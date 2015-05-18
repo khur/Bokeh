@@ -260,3 +260,23 @@ margin-top: -5px;
 -o-transition: all 0.3s ease-in-out;
 transition: all 0.3s ease-in-out;
 }
+
+/* CONTEST RANKING PHOTOS */
+
+.ranks_photos{
+  margin: 0 auto;
+  text-align: center;
+}
+img.ranked_photo {
+  width: 75%;
+  margin: 1% auto;
+  
+}
+
+li{
+  list-style-type: none;
+  border-bottom: 1px solid $gray-lighter;
+}
+
+
+

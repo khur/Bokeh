@@ -26,7 +26,8 @@ $('#user_index').pinterest_grid({
 	});
 });
 
-$(document).ready(function() {
+
+$(window).load(function() {
 $('#user_contest_index').pinterest_grid({
 		no_columns: 7,
 		padding_x: 10,
@@ -37,12 +38,3 @@ $('#user_contest_index').pinterest_grid({
 });
 
 
-$('.user_contest_entry').click(function(){
-	$('#user_contest_index').pinterest_grid({
-			no_columns: 7,
-			padding_x: 10,
-			padding_y: 10,
-			margin_bottom: 50,
-			single_column_breakpoint: 700
-		});
-})
