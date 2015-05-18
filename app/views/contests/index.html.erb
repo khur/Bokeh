@@ -1,8 +1,18 @@
 <h1>Contests</h1>
-<%= link_to("Create Contest", new_contest_path) %>
+<div class="bg3"></div>
+<% if logged_in? %>
+    <%= link_to("Create Contest", new_contest_path) %>
+<% end %>
 <ul>
 <% @contests.each do |contest|%>
-	<li><%= link_to "#{contest.name}", contest_path(contest) %></li>
+	<li>
+		<h3><%= link_to "#{contest.name}", contest_path(contest) %></h3>
+		<%= link_to "Top 10", ranking_path(contest) %>
+		<% if @current_user.admin %>
+			 | <%= link_to "Destroy Contest", contest,  method: :delete %>
+		<% end %>
+	</li>
+	
 <% end %>
 </ul>
 

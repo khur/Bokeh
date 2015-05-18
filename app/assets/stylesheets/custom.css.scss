@@ -11,6 +11,12 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
+*{
+  @include box_sizing;
+  font-family: 'Open Sans', Verdana, Helvetica, sans-serif;
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.6)
+}
+
 /* miscellaneous */
 
 .debug_dump {
@@ -73,11 +79,11 @@ p {
 /* header */
 
 #logo {
+  font-family: 'Bree Serif', Georgia, serif;
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
   color: white;
-  text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
@@ -203,3 +209,229 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+/* User Photos */
+
+.imageInput{
+  padding: 1%;
+  border-radius: 5px;
+}
+.newPhoto{
+  width: 50%;
+  margin: 5% auto;
+}
+
+
+#user_index {
+position: relative;
+max-width: 100%;
+width: 100%;
+}
+img.profile, img.user_contest_entry {
+width: 100%;
+max-width: 100%;
+height: auto;
+}
+
+.user_photo {
+position: absolute;
+background: white;
+box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+padding: 10px;
+}
+
+.user_photo:hover {
+box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+margin-top: -5px;
+-webkit-transition: all 0.3s ease-in-out;
+-moz-transition: all 0.3s ease-in-out;
+-o-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
+}
+
+/* CONTEST PHOTOS */
+
+#user_contest_index {
+position: relative;
+max-width: 100%;
+width: 100%;
+}
+img.contest_entry {
+width: 100%;
+max-width: 100%;
+height: auto;
+}
+.user_contest_photo {
+position: absolute;
+background: white;
+box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+padding: 5px;
+}
+
+.user_contest_photo:hover {
+box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+margin-top: -5px;
+-webkit-transition: all 0.3s ease-in-out;
+-moz-transition: all 0.3s ease-in-out;
+-o-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
+}
+
+/* Home */
+
+#home-photo{
+  width: 100%;
+}
+
+.bg {
+    background: url("http://image.desk7.net/Plant%20Wallpapers/7799_1680x1050.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+}
+
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    opacity: .6;
+    z-index: -1;
+}
+
+#title {
+  font-size: 80px;
+  color: black;
+  text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.4);
+}
+
+.bg2 {
+  background: url("http://www.magic4walls.com/wp-content/uploads/2014/03/flowers-daisy-vintage-spring-beautiful-nature-plant-photo-hd-wallpaper.jpg") no-repeat center center fixed;
+      -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+}
+
+.bg3 {
+  background: url('http://p1.pichost.me/i/44/1680564.jpg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+}
+
+.bg4 {
+  background: url("http://image.desk7.net/Landscape%20Wallpapers/9869_1680x1050.jpg") no-repeat center center fixed;
+      -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+}
+
+.bg5 {
+  background: url("http://74211.com/wallpaper/picture_big/Beautiful-Bird-Photography-Little-Bird-with-Long-and-Colorful-Mouth.jpg") no-repeat center center fixed;
+      -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+}
+
+.bg6 {
+  background: url("http://hdwallpapersfit.com/wp-content/uploads/2015/01/water-beautiful-beach-photography-hd.jpg") no-repeat center center fixed;
+      -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+}
+
+.alert-danger {
+  background-color: rgba(68, 68, 68, 0.85);
+  border: 1px solid white;
+  color: rgb(253, 47, 149);
+}
+
+/* CONTEST RANKING PHOTOS */
+
+.ranks_photos{
+  margin: 0 auto;
+  text-align: center;
+}
+img.ranked_photo {
+  width: 75%;
+  margin: 1% auto;
+  
+}
+
+li{
+  list-style-type: none;
+  border-bottom: 1px solid $gray-lighter;
+}
+
+/* ABOUT ME */
+
+#aboutMe{
+  width: 75%;
+  margin: 0 auto;
+  p{
+    background-color: $gray-lighter;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5%;
+  }
+}
+
+/* CONTACT US */
+
+#contactUs{
+  width: 75%;
+  margin: 0 auto;
+  p{
+    background-color: $gray-lighter;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5%;
+  }
+}
+
+
+

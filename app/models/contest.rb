@@ -1,5 +1,5 @@
 class Contest < ActiveRecord::Base
-  has_many :photos
+  has_many :photos, dependent: :nullify
   belongs_to :user
 
   validates :name, presence: true
