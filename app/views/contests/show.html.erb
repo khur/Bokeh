@@ -1,8 +1,21 @@
 <h1>Contest name: <%= @contest.name %></h1>
 <h2>Contest criteria: <%= @contest.criteria %></h2>
 
+<%= "Number of photos in this contest: #{@contest.photos.size}" %>
+<br>
 
-<h3>Photos in contest: </h3>
+<%= link_to("Vote in this contest", start_contest_path) %>
+<br>    
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h3>Your photos in contest: </h3>
 <% if @contest.photos.where(user_id: current_user.id).empty? %>
   <p>No photos in this contest yet</p>
 <% end %>

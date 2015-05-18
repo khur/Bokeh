@@ -19,8 +19,9 @@ Rails.application.routes.draw do
 
   get 'contest/:id/photo/:photo_id' => 'contests#enter_contest', as: :enter_contest
 
-
-
+  get 'contests/:id/start' => 'contests#start', as: :start_contest
+  get 'contests/:id/vote' => 'contests#vote'
+  put 'contests/:id/vote' => 'contests#vote', as: :vote
 
 
   # The priority is based upon order of creation: first created -> highest priority.
