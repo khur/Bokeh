@@ -20,31 +20,35 @@ class ContestsController < ApplicationController
       redirect_to contests_path
     else
       render :new
-
     end
-
-
-    def show
-        @contest = Contest.find(params[:id])
-    end
-
-
-    def new
-        @contest = Contest.new
-    end
-
-
   end
 
   def enter_contest
-  	@contest = Contest.find(params[:id])
-  	@photo = Photo.find(params[:photo_id])
-  	@photo.contest = @contest
-  	if @photo.save	
-  		p "it worked!"
-  		redirect_to contest_path(@contest)
-  	end
-  	
+    @contest = Contest.find(params[:id])
+    @photo = Photo.find(params[:photo_id])
+    @photo.contest = @contest
+    if @photo.save
+      redirect_to contest_path(@contest)
+    end
+  end
+
+  def start
+    @contest = Contest.find(params[:id])
+    random_photos = @contest.photos.limit(2).order("RANDOM()")
+    @photo1 = random_photos[0]
+    @photo2 = random_photos[1]
+  end
+
+  def vote
+    @contest = Contest.find(params[:id])
+    @photo1 = Photo.find(params[:up_photo_id])
+    @photo2 = Photo.find(params[:down_photo_id])
+    photo1_current_score = @photo1.score
+    photo2_current_score = @photo2.score
+    @photo1.upvote(photo2_current_score)
+    @photo2.downvote(photo1_current_score)
+
+    redirect_to start_contest_path
   end
 
   private
@@ -53,4 +57,3 @@ class ContestsController < ApplicationController
     params.require(:contest).permit(:name, :criteria)
   end
 end
-

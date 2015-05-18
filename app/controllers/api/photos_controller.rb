@@ -18,7 +18,7 @@ module API
     def create
       @photo = Photo.new(photo_params)
       @photo.user = current_user
-      
+
       if @photo.save
         # render json: @photo, status: 201, location: [:api, @photo]
         redirect_to current_user
@@ -44,6 +44,9 @@ module API
       head 204
     end
 
+    def self.random
+      render json: Photo.find(params[:id])
+    end
 
     private
     def photo_params
