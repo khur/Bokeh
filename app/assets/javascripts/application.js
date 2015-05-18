@@ -26,6 +26,7 @@ $('#user_index').pinterest_grid({
 	});
 });
 
+
 $(window).load(function() {
 $('#user_contest_index').pinterest_grid({
 		no_columns: 7,

@@ -68,9 +68,16 @@ class ContestsController < ApplicationController
     redirect_to start_contest_path
   end
 
+  def ranking
+    @contest = Contest.find(params[:id])
+    @photos = @contest.photos.limit(10).order(score: :desc)
+  end
+
   private
 
   def contest_params
     params.require(:contest).permit(:name, :criteria)
   end
+
+
 end
