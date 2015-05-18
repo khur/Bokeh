@@ -12,12 +12,16 @@
 </div>
 
 
-<section class="row">
+<section id="user_index">
     <% if @user.photos.empty? %>
       <p>You ain't gots no photos</p>
     <% end %> 
 
     <% @user.photos.each do |photo| %>
-       <div class="col-md-6"> <%= image_tag photo.image,  class: "img-rounded img-responsive user_photo" %> </div>
+    
+        <div class="user_photo">
+          <%= image_tag photo.image,  class: "profile" %>
+        </div>
+      
     <% end %>
 </section>

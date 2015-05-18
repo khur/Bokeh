@@ -15,3 +15,34 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+$('#user_index').pinterest_grid({
+		no_columns: 4,
+		padding_x: 10,
+		padding_y: 10,
+		margin_bottom: 50,
+		single_column_breakpoint: 700
+	});
+});
+
+$(document).ready(function() {
+$('#user_contest_index').pinterest_grid({
+		no_columns: 7,
+		padding_x: 10,
+		padding_y: 10,
+		margin_bottom: 50,
+		single_column_breakpoint: 700
+	});
+});
+
+
+$('.user_contest_entry').click(function(){
+	$('#user_contest_index').pinterest_grid({
+			no_columns: 7,
+			padding_x: 10,
+			padding_y: 10,
+			margin_bottom: 50,
+			single_column_breakpoint: 700
+		});
+})
