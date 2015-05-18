@@ -38,3 +38,7 @@ Contest.create([
                    criteria: "Anything as long as it's aesthetically pleasing."
                  }
 ])
+
+first_contest = Contest.first
+first_contest.user = User.first
+first_contest.save

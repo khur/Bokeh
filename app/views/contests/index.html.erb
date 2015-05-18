@@ -1,5 +1,5 @@
 <h1>Contests</h1>
-<% if logged_in? && current_user.admin? %>
+<% if logged_in? %>
     <%= link_to("Create Contest", new_contest_path) %>
 <% end %>
 <ul>
