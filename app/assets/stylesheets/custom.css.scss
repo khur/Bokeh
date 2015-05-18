@@ -288,5 +288,31 @@ li{
   border-bottom: 1px solid $gray-lighter;
 }
 
+/* ABOUT ME */
+
+#aboutMe{
+  width: 75%;
+  margin: 0 auto;
+  p{
+    background-color: $gray-lighter;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5%;
+  }
+}
+
+/* CONTACT US */
+
+#contactUs{
+  width: 75%;
+  margin: 0 auto;
+  p{
+    background-color: $gray-lighter;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5%;
+  }
+}
+
 
 
