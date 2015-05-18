@@ -10,17 +10,15 @@ Photo.destroy_all
 Contest.destroy_all
 User.destroy_all
 
-User.create([
-              {
-                image: "no image",
-                name: "Richard Luo",
-                username: "rluo0506",
-                email: "rluo0506@gmail.com",
-                password: "123qwe",
-                password_confirmation: '123qwe',
-                admin: true
-              }
-])
+users = User.create([
+                      {
+                        image: "no profile pic",
+                        name: "Richard Luo",
+                        username: "rluo0506",
+                        email: "rluo0506@gmail.com",
+                        password: "123qwe",
+                        password_confirm: "123qwe"
+}])
 # users = User.create([
 #     {
 #         image: "phofile pic",
