@@ -1,5 +1,7 @@
 <h1>Contests</h1>
-<%= link_to("Create Contest", new_contest_path) %>
+<% if logged_in? && current_user.admin? %>
+    <%= link_to("Create Contest", new_contest_path) %>
+<% end %>
 <ul>
 <% @contests.each do |contest|%>
 	<li><%= link_to "#{contest.name}", contest_path(contest) %></li>

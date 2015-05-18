@@ -1,4 +1,6 @@
 class ContestsController < ApplicationController
+  before_action :logged_in_user, except: [:index, :show, :start, :vote]
+  before_action :admin_user,     only: [:new, :edit, :update, :destroy]
 
   def index
     @contests = Contest.all
@@ -44,7 +46,7 @@ class ContestsController < ApplicationController
     while @photo1 == @photo2
       random_counter += 1
       if random_counter == @random_photos.size
-        flash[:error] = "No available photo matching"
+        flash[:danger] = "No available photo matching"
         redirect_to root_path
       end
       @photo1 = @random_photos[random_counter]
