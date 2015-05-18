@@ -16,18 +16,28 @@
 <br>
 
 <h3>Your photos in contest: </h3>
-<% if @contest.photos.where(user_id: current_user.id).empty? %>
-  <p>No photos in this contest yet</p>
-<% end %>
-<% @contest.photos.where(user_id: current_user.id).each do |photo| %>
-    <%= image_tag photo.image.url(:thumb) %>
-<% end %>
+<div id="user_contest_index">
+	<% if @contest.photos.where(user_id: current_user.id).empty? %>
+	  <p>No photos in this contest yet</p>
+	<% end %>
+	
+		<% @contest.photos.where(user_id: current_user.id).each do |photo| %>
+			<div class="user_contest_photo">
+		    	<%= image_tag photo.image, class: "contest_entry" %>
+		    </div>
+		<% end %>
 
+</div>
 <br>
-<% if @user.photos.empty? %>
-  <p>You ain't gots no photos</p>
-<% end %>
 <h3>Your Photos</h3>
-<% @user.photos.each do |photo| %>
-    <%= link_to (image_tag photo.image.url(:thumb)), enter_contest_path(id: @contest.id, photo_id: photo.id)%>
-<% end %>
+<div id="user_index">
+	<% if @user.photos.empty? %>
+	  <p>You ain't gots no photos</p>
+	<% end %>
+
+	<% @user.photos.each do |photo| %>
+	    <div class="user_photo">
+	    	<%= link_to (image_tag photo.image, class: "user_contest_entry"), enter_contest_path(id: @contest.id, photo_id: photo.id)%>
+	    </div>
+	<% end %>
+</div>
